@@ -2,10 +2,16 @@
     <html lang="fr" th:fragment="layout(title,content)">
 <head>
     <meta charset="UTF-8">
-    <title th:text="${titre}">Document</title>
+    <meta name="viewport" content="width=device=width, initial-scale=1">
+    <title th:replace="${title}">Document</title>
 </head>
 
 <body>
+<header>
+    <h1>ici, on dit bonjour</h1>
+    <a th:href="@{/}">Accueil</a>
+    <a th:href="@{/salut(name='Thymeleaf')}">Bonjour</a>
+</header>
     <main>
         <div th:replace="${content}"></div>
     </main>

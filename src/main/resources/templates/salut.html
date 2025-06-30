@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="fr" th:replace="fragments/layout :: layout(~{::title},~{::section})">
+<head>
+    <title>Salut</title>
+</head>
+
+<section>
+    <h2 th:text="'Bonjour ' + ${name} ">Bonjour Monde</h2>
+
+    <form th:action="@{/salut}" method="get">
+        <label>Votre nom :
+            <input type="text" name="name" placeholder="Monde"/>
+        </label>
+        <button type="submit">Dire Bonjour</button>
+    </form>
+
+</section>
+</html>
