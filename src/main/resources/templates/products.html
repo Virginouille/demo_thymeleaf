@@ -7,6 +7,10 @@
 <section>
     <h2>Nos produits</h2>
 
+    <div>
+        <a th:href="@{/products/add}">Ajouter un produit</a>
+    </div>
+
     <p th:unless="${#lists.isEmpty(productlist)}">Voici nos articles disponibles</p>
     <p th:if="${#lists.isEmpty(productlist)}">Désolé, aucun produit n'est disponibles</p>
 <table th:unless="${#lists.isEmpty(productlist)}">

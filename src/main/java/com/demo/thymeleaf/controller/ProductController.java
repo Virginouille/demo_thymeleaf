@@ -4,6 +4,8 @@ import com.demo.thymeleaf.model.Product;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
@@ -17,7 +19,7 @@ public class ProductController {
         List.of(
             new Product(1L, "product 1",new BigDecimal("10.00")),
             new Product(2L, "product 2", new BigDecimal("20.00")),
-            new Product(2L, "product 2", new BigDecimal("30.00"))
+            new Product(3L, "product 3", new BigDecimal("30.00"))
             )
         );
 
@@ -27,5 +29,17 @@ public class ProductController {
     public String products(Model model) {
             model.addAttribute("productlist", products);
             return "products";
+        }
+
+        @GetMapping("/products/add")
+    public String addProduct(Model model) {
+            model.addAttribute("product", new Product());
+            return "add-product";
+        }
+
+        @PostMapping("/products/add")
+    public String addProduct(@ModelAttribute("product")Product product) {
+            products.add(product);
+            return "redirect:/products";
         }
 }
