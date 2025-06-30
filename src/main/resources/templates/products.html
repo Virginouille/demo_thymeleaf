@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html th:replace="fragments/layout :: layout(~{::title}, ~{::section})">
+    <head>
+        <title>List des produits</title>
+    </head>
+
+<section>
+    <h2>Nos produits</h2>
+
+    <p th:unless="${#lists.isEmpty(productlist)}">Voici nos articles disponibles</p>
+    <p th:if="${#lists.isEmpty(productlist)}">Désolé, aucun produit n'est disponibles</p>
+<table th:unless="${#lists.isEmpty(productlist)}">
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>Nom</th>
+            <th>Prix</th>
+            <th>Parité</th>
+        </tr>
+    </thead>
+    <tbody>
+    <tr th:each="p, iterStat : ${productlist}">
+        <td th:text="${iterStat.count}">1</td>
+        <td th:text="${p.name}">Nom du produit</td>
+        <td th:text="${#numbers.formatCurrency(p.price)}">0.00</td>
+        <td th:text="${iterStat.odd ? 'impair' : 'pair'}"></td>
+
+    </tr>
+    </tbody>
+</table>
+</section>
+
+</html>

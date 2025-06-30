@@ -10,7 +10,8 @@
 <header>
     <h1>ici, on dit bonjour</h1>
     <a th:href="@{/}">Accueil</a>
-    <a th:href="@{/salut(name='Thymeleaf')}">Bonjour</a>
+    <a th:href="@{/salut(name='')}">Bonjour</a>
+    <a th:href="@{/products}">Produits</a>
 </header>
     <main>
         <div th:replace="${content}"></div>
