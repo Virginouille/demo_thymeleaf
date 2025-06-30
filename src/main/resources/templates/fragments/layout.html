@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+    <html lang="fr" th:fragment="layout(title,content)">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="${titre}">Document</title>
+</head>
+
+<body>
+    <main>
+        <div th:replace="${content}"></div>
+    </main>
+</body>
+</html>
