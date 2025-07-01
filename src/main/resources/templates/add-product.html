@@ -12,11 +12,14 @@
         <div>
             <label for="name">Nom du produit</label>
             <input type="text" id="name" placeholder="Ex: Macbook Air" th:field="*{name}"/>
+            <div th:if="${#fields.hasErrors('name')}" th:errors="*{name}"  style="color: red"></div>
+
         </div>
 
         <div>
             <label for="price">Prix du produit</label>
             <input type="text" id="price" placeholder="10.00" th:field="*{price}"/>
+            <div th:if="${#fields.hasErrors('price')}" th:errors="*{price}" style="color:red"></div>
         </div>
 
         <div>

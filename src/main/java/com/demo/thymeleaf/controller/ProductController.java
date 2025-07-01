@@ -1,8 +1,10 @@
 package com.demo.thymeleaf.controller;
 
 import com.demo.thymeleaf.model.Product;
+import jakarta.validation.Valid;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -38,7 +40,12 @@ public class ProductController {
         }
 
         @PostMapping("/products/add")
-    public String addProduct(@ModelAttribute("product")Product product) {
+    public String addProduct(@Valid @ModelAttribute("product")Product product, BindingResult result) {
+
+            //Si j'ai des erreurs je reste sur la page d'ajout
+            if (result.hasErrors()) {
+                return "add-product";
+            }
             products.add(product);
             return "redirect:/products";
         }
