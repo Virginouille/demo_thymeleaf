@@ -9,9 +9,9 @@
 <body>
 <header>
     <h1>Bonjour</h1>
-    <a th:href="@{/}">Accueil</a>
-    <a th:href="@{/salut(name='')}">Bonjour</a>
-    <a th:href="@{/products}">Produits</a>
+    <a th:href="@{/}" th:text="#{nav.home}">Accueil</a>
+    <a th:href="@{/salut(name='')}" th:text="#{nav.greeting}">Bonjour</a>
+    <a th:href="@{/products}" th:text="#{nav.products}">Produits</a>
 </header>
     <main>
         <div th:replace="${content}"></div>
